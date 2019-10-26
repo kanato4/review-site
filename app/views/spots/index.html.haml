@@ -9,15 +9,9 @@
   .side 
     .side__heading 評価ランキング
     .side__listview
-      %li
-        .box
-          .box__num 1
-          .box__title aaaa
-      %li
-        .box
-          .box__num 2
-          .box__title aaaaa
-      %li 
-        .box
-          .box__num 3
-          .box__title aaaaaa
+      - @spots.each.with_index(1) do |spot, i|
+        %li.box 
+          .box__num
+            = i
+          .box__title
+            = spot.name
