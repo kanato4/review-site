@@ -93,14 +93,14 @@ body{
 
 .side{
   margin: 16px;
-  padding: 16px;
+  padding: 32px;
   box-sizing: border-box;
   width: 360px;
-  background-color: lightgray;
+  background-color: #eee;
   border: solid 2px;
   border-radius: 32px;
   &__heading{
-    font-size: 32px;
+    font-size: 24px;
     padding-bottom: 8px;
     margin-bottom: 40px;
     border-bottom: solid 1px gray;
