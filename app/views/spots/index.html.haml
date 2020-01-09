@@ -1,17 +1,46 @@
 .container
   .main 
-    .info plese your voice. for make better town.
     .form 
-      .form__info 市区町村を探す
+      .form__info
+        Please let me hear your voice.
       .form__search
-        %input.form__search__input{id: 'spot-search-field', placeholder: "自治体を入力してください"}
-        %btn.form__search__btn search
-  .side 
-    .side__heading 評価ランキング
-    .side__listview
-      - @spots.each.with_index(1) do |spot, i|
-        %li.box 
+        %input.form__search__input{id: 'spot-search-field', placeholder: "市区町村を入力してください"}
+        %button.form__search__btn search
+    .ranking 
+      .ranking__head
+        Ranking
+      .ranking__list
+        .box 
+          .box__num--top
+            1.
+          .box__title--top
+            千代田区
+          %p{class: "text-small"}
+            .rating-star
+              %i{class: "star-actived rate-0"}
+        .box
           .box__num
-            = i
+            2.
           .box__title
-            = spot.name
+            港区
+          %p{class: "text-small"}
+            .rating-star
+              %i{class: "star-actived rate-0"}
+        .box
+          .box__num
+            3.
+          .box__title
+            中央区
+          %p{class: "text-small"}
+            .rating-star
+              %i{class: "star-actived rate-0"}
+  .side
+    .side__head
+      最近のレビュー
+    .side__list
+      .side__article
+        %h1 user_name_1
+        %p よかったです
+      .side__article
+        %h1 user_name_2
+        %p すごいです

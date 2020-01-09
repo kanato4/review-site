@@ -10,7 +10,6 @@ class Scraping
 
   def self.get_spot(link)
     name = link.inner_text
-    url = link.get_attribute("href")
     spot = Spot.where(name: name, url: url).first_or_initialize
     spot.save
   end

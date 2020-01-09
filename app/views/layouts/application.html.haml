@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title 東京都自治体クチコミ
+    %title City Review
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -11,8 +11,9 @@
   .wrapper
     .header 
       .top-menu
-        .logo Tokyo-Review
+        .logo City-Review
         .user-form
-          .user-form__post ログイン
           .user-form__post 新規登録
+          .user-form__post ログイン
     = yield
+    = render "layouts/footer"
