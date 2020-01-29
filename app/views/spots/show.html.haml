@@ -1,9 +1,33 @@
-.container
-  .header 
-    .header--section
+.show-review
+  .title
+    .title--section
       %h2{class: "text-middle"}
         = @spot.name
-      %h2{style: "text-align: right"}
+  .main-review
+    .main-review__write
+      %button
         この街のレビューをする
-      %i{class: "icon-movie color-gray-light"}
+    .main-review__list
+      %h3
         みんなのレビュー
+      .main-review__list__article
+        .main-review__list__article__title
+          一番目のコメント
+        .main-review__list__article__user-name
+          ユーザー１
+        .main-review__list__article__content
+          あああああああああああああああああああああああああああああああああ
+      .main-review__list__article
+        .main-review__list__article__title
+          二番目のコメント
+        .main-review__list__article__user-name
+          ユーザー２
+        .main-review__list__article__content
+          あああああああああああああああああああああああああああああああああ
+      .main-review__list__article
+        .main-review__list__article__title
+          三番目のコメント
+        .main-review__list__article__user-name
+          ユーザー３
+        .main-review__list__article__content
+          あああああああああああああああああああああああああああああああああ
