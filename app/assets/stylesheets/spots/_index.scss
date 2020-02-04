@@ -1,5 +1,6 @@
 body{
   background-image: url('https://www.pakutaso.com/shared/img/thumb/heriyakei419173_TP_V.jpg');
+  background-attachment: fixed;
   background-size: cover;
   background-color: rgba(255,255,255,0.5);
   background-blend-mode: lighten;
@@ -14,43 +15,11 @@ body{
   background-blend-mode:lighten;
 }
 
-.header{
-  padding: 8px 40px;
-  box-sizing: border-box;
-  width: 100%;
-  border-bottom: solid 1px;
-  .top-menu{
-    margin: 0;
-    height: 64px;
-    line-height: 64px;
-    .logo{
-      float: left;
-      font-size: 50px;
-    }
-    .user-form{
-      padding: 8px;
-      box-sizing: border-box;
-      float: right;
-      text-align: center;
-      display: flex;
-      &__post{
-        width: 120px;
-        height: 40px;
-        margin-left: 16px;
-        line-height: 40px;
-        border: solid 2px;
-        border-radius: 8px;
-      }
-    }
-  }
-}
-
 .container{
   margin: 0 auto;
   padding: 40px 120px;
   display: flex;
   .main{
-    margin-bottom: 72px;
     box-sizing: border-box;
     text-align: center;
     width: 600px;
@@ -89,7 +58,7 @@ body{
     }
   }
   .ranking{
-    padding: 32px;
+    padding: 16px;
     box-sizing: border-box;
     border: solid 1px;
     border-radius: 8px;
@@ -130,7 +99,7 @@ body{
   .side{
     margin: 0 40px;
     padding: 20px;
-    height: 480px;
+    height: 440px;
     width: 400px;
     border: solid 1px;
     border-radius: 8px;
@@ -140,15 +109,5 @@ body{
       font-size: 32px;
       border-bottom: solid 1px;
     }
-  }
-}
-
-.footer-container{
-  height: 60px;
-  width: 100%;
-  border-top: solid 1px;
-  h2{
-    margin: 16px;
-    text-align: center;
   }
 }

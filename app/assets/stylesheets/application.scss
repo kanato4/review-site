@@ -1,3 +1,11 @@
-@import "./reset";
+// config
+@import "config/common";
+
+// spots
 @import "spots/index";
 @import "spots/show";
+@import "spots/search";
+
+@import "./header";
+@import "./footer";
+@import "./reset";

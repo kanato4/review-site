@@ -1,33 +1,39 @@
 .show-review{
-  height: 800px;
+  padding: 80px;
+  height: 560px;
   .title{
-    margin: 40px;
-    font-size: 80px;
+    margin: 0 auto 40px;
+    width: 80%;
+    h2{
+      font-size: 80px;
+    }
   }
   .main-review{
-    margin: 0 50px 0;
-    height: 600px;
+    height: 560px;
   &__write{
     button{
-    display: block;
-    line-height: 48px;
-    font-size: 14px;
-    cursor: pointer;
-    text-align: center;
-    border-radius: 4px;
+    @include btn-default;
+    margin: 0 auto 40px;
+    width: 80%;
     background-color: lightgray;
     }
   }
   &__list{
-    margin: 80px;
+    margin: 0 auto;
+    padding: 16px;
+    box-sizing: border-box;
+    width: 80%;
+    border: solid 1px;
     h3{
       display: inline-block;
       font-size: 24px;
+      font-weight: bold;
       margin-bottom: 16px;
     }
     &__article{
-      margin-bottom: 8px;
+      margin-bottom: 16px;
       border-bottom: solid 1px;
+      line-height: normal;
     }
   }
   }

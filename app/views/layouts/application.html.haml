@@ -8,12 +8,5 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-  .wrapper
-    .header 
-      .top-menu
-        .logo City-Review
-        .user-form
-          .user-form__post 新規登録
-          .user-form__post ログイン
-    = yield
-    = render "layouts/footer"
+    .wrapper
+      = yield
