@@ -6,5 +6,17 @@ Rails.application.routes.draw do
     end
     resources :reviews
   end
-  resources :users
+  devise_for :users, :controllers => {
+    sessions: 'users/sessions',
+    registrations: 'signup'
+  } 
+
+  resources "signup", only: [:index, :create], path: "/signup" do
+    collection do
+      get 'user_info'
+      post 'user_tel'
+      post 'user_tel_verification'
+      get 'user_complete'
+    end
+  end
 end

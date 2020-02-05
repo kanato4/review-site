@@ -1,0 +1,62 @@
+.signup-panel
+    %p.signup-panel__title ユーザ情報登録
+
+    -# = form_for @user, url: user_tel_signup_index_path, builder: WithErrorFormBuilder, html: {class: "inputForm"} do |f|
+    .signup-form
+      .field
+        = f.label :nickname, "ニックネーム"
+        %span.form-require
+        = f.text_field :nickname, class: "field__input", placeholder: "例）メルカリ太郎"
+      .field
+        = f.label :email, "メールアドレス"
+        %span.form-require
+        = f.email_field :email, class: "field__input", placeholder: "PC・携帯どちらでも可"
+      .field
+        = f.label :password, "パスワード"
+        %span.form-require
+        = f.password_field :password, class: "field__input", placeholder: "6文字以上"
+      .field
+        = f.label :password_confirmation, "パスワード（確認）"
+        %span.form-require
+        = f.password_field :password_confirmation, class: "field__input", placeholder: "6文字以上（確認）"
+
+      .field
+        %h3 本人確認
+        %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません
+
+      .field
+        = f.label :last_name, "姓（全角）"
+        %span.form-require
+        = f.text_field :last_name, class: "field__input", placeholder: "例）山田"
+      .field
+        = f.label :first_name, "名（全角）"
+        %span.form-require
+        = f.text_field :first_name, class: "field__input", placeholder: "例）太郎"
+      .field
+        = f.label :last_name_kana, "姓カナ（全角）"
+        %span.form-require
+        = f.text_field :last_name_kana, class: "field__input", placeholder: "例）ヤマダ"
+      .field
+        = f.label :first_name_kana, "名カナ（全角）"
+        %span.form-require
+        = f.text_field :first_name_kana, class: "field__input", placeholder: "例）タロウ"
+      .field
+        = f.label :birthday, "生年月日"
+        %span.form-require
+        .pulldown
+          .select-wrap
+            = raw sprintf(f.date_select( :birthday, 
+              prompt: "--",
+                use_two_digit_numbers: true,
+                start_year: Time.now.year,
+                end_year: 1900,
+                date_separator: '%s'),
+                '年 ', '月 ')
+    
+        %p.form-info
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+      
+      .field
+        %p 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+    .sign-up-btn
+      = f.submit "次へ進む", class: "btn-red"

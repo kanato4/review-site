@@ -5,20 +5,23 @@
 |email|string|null: false|
 |password|string|null: false|
 |nickname|string|null: false, index: true|
-|position|references|null: false, foreign_key: true|
+|telephone|integer||
+|birthday|date|null: false|
+|gender|string|null: false|
 
 ### Association
 - has_many :reviews
-- belongs_to :position
+- has_one :position
 
 
 ## positionテーブル
 |Column|Type|Options|
 |------|----|-------|
+|user_id|references|null: false, foreign_key: true|
 |name|string|null: false|
 
 ### Association
-- has_many :users
+- belongs_to :user
 
 
 ## spotテーブル
