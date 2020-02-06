@@ -7,7 +7,6 @@
 |nickname|string|null: false, index: true|
 |telephone|integer||
 |birthday|date|null: false|
-|gender|string|null: false|
 
 ### Association
 - has_many :reviews
@@ -18,7 +17,17 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|name|string|null: false|
+|position|string|null: false|
+
+### Association
+- belongs_to :user
+
+
+## genderテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|gender|string|null: false|
 
 ### Association
 - belongs_to :user
