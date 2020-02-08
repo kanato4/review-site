@@ -4,7 +4,8 @@
       = link_to "City-Review", root_path
     .user-form
       - if user_signed_in?
-        .user-form__post マイページ
+        .user-form__post
+          = link_to "マイページ", users_path
       - else
         .user-form__post
           = link_to "新規登録", user_info_signup_index_path

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     registrations: 'signup'
   } 
 
+  resources :users, only: [:index, :edit, :show, :destroy], path: "/mypage"
+
   resources "signup", only: [:index, :create], path: "/signup" do
     collection do
       get 'user_info'
