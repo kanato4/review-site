@@ -3,6 +3,10 @@
     .logo
       = link_to "City-Review", root_path
     .user-form
-      .user-form__post 新規登録
-      .user-form__post ログイン
+      - if user_signed_in?
+        .user-form__post マイページ
+      - else
+        .user-form__post
+          = link_to "新規登録", user_info_signup_index_path
+        .user-form__post ログイン
       .user-form__post 利用案内

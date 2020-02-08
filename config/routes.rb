@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   root 'spots#index'
+
   resources :spots do
     collection do
       get 'search'
     end
     resources :reviews
   end
+
   devise_for :users, :controllers => {
     sessions: 'users/sessions',
     registrations: 'signup'
