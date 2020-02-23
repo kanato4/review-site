@@ -1,0 +1,71 @@
+= render "shared/header"
+
+.container
+  .main 
+    .review 
+      .review__info
+        Please let me hear your voice.
+      .review__list
+        .article
+          = image_tag "Noimage_image.png"
+          .article__title
+            タイトルが入リます。
+        .article
+          = image_tag "Noimage_image.png"
+          .article__title
+            タイトルが入ります。
+        .article
+          = image_tag "Noimage_image.png"
+          .article__title
+            タイトルが入ります。
+        .article
+          = image_tag "Noimage_image.png"
+          .article__title
+            タイトルが入ります。
+        .article
+          = image_tag "Noimage_image.png"
+          .article__title
+            タイトルが入ります。
+        .article
+          = image_tag "Noimage_image.png"
+          .article__title
+            タイトルが入ります。
+        .article
+          = image_tag "Noimage_image.png"
+          .article_title
+            タイトルが入ります。
+        .article
+          = image_tag "Noimage_image.png"
+          .article__title
+            タイトルが入ります。
+
+    .ranking 
+      .ranking__head
+        Ranking
+      .ranking__list
+        .box 
+          .box__num--top
+            1.
+          .box__title--top
+            千代田区
+          %p{class: "text-small"}
+            .rating-star
+              %i{class: "star-actived rate-0"}
+        .box
+          .box__num
+            2.
+          .box__title
+            港区
+          %p{class: "text-small"}
+            .rating-star
+              %i{class: "star-actived rate-0"}
+        .box
+          .box__num
+            3.
+          .box__title
+            中央区
+          %p{class: "text-small"}
+            .rating-star
+              %i{class: "star-actived rate-0"}
+
+= render "shared/footer"

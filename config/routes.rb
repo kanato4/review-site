@@ -1,19 +1,17 @@
 Rails.application.routes.draw do
-  root 'spots#index'
 
-  resources :spots do
-    collection do
-      get 'search'
-    end
-    resources :reviews
-  end
+  root 'reviews#index'
+
+  resources :reviews
 
   devise_for :users, :controllers => {
     sessions: 'users/sessions',
     registrations: 'signup'
   } 
 
-  resources :users, only: [:index, :edit, :show, :destroy], path: "/mypage"
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
 
   resources "signup", only: [:index, :create], path: "/signup" do
     collection do
@@ -23,4 +21,6 @@ Rails.application.routes.draw do
       get 'user_complete'
     end
   end
+
+  resources :users, only: [:index, :edit, :show], path: "/mypage"
 end

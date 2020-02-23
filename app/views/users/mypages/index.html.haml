@@ -1,5 +1,7 @@
 = render "shared/header"
 
 .container
-
+  .log-out
+    = link_to "ログアウト", destroy_user_session_path, method: :delete
+    
 = render "shared/footer"

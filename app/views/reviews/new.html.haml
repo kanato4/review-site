@@ -1,0 +1,45 @@
+= render "shared/header"
+
+.container
+  .new
+    %h2.title レビュー情報を入力
+    .form
+      = form_with(model: @review, local: true, multipart: true) do |f|
+        .image
+          %h3.image__title
+            出品画像
+          %p.image__attention 最大3枚まで選択できます
+          %ul.image__upload
+            - @review.images.each_with_index do |image, i|
+              = f.fields_for :images, image do |fi|
+                %li.upload-form
+                  %p.upload-form__num
+                  = fi.label :image, class: 'upload-form__select-btn', for: "image#{i}" do
+                    = fi.file_field :image, class: 'upload-form__select-btn--input_tag', id:"image#{i}" 
+                  .upload-form__remove-btn{id: "image#{i}_rmv"} 削除
+        .spot
+          %h3.spot__title
+            Google Map
+          %input{type: "textbox", placeholder: "スポットを入力", id: "address"}
+          %input{onclick: "codeAddress()", type: "button", value: "検索する"}
+          #map{style: "height: 320px; width: 640px;"}
+          .spot__info
+            .spot__info__lat{id: "ido"}
+              緯度が表示されます
+            .spot__info__lng{id: "keido"}
+              経度が表示されます
+        .review
+          .review__title
+            = f.label :title, "タイトル", class: 'review__title__label'
+            = f.text_field :title, class: 'review__title__text', placeholder: "タイトル名（必須20文字まで）"
+          .review__rate
+            = f.label :rating, "評価", class: 'review__rate__label'
+            = f.select :rating,[[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], prompt: "---", class: 'review__rate__select'
+          .review__content
+            = f.label :discription, "レビュー内容", class: 'review__content__label'
+            = f.text_area :description, class: 'review__content__textarea', placeholder: "レビューの内容を入力してください。"
+          = f.submit "投稿する", class: 'list-btn'
+          = link_to("もどる", root_path, class: 'back-btn')
+
+= render "shared/footer"
+%script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAP_KEY"]}&callback=initMap"}
