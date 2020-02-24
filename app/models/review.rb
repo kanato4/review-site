@@ -1,6 +1,8 @@
 class Review < ApplicationRecord
   belongs_to :user
+  has_one :spot
   has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :spot
   accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :reject_image_blank
 
   def reject_image_blank(attributes)

@@ -18,16 +18,11 @@
                     = fi.file_field :image, class: 'upload-form__select-btn--input_tag', id:"image#{i}" 
                   .upload-form__remove-btn{id: "image#{i}_rmv"} 削除
         .spot
-          %h3.spot__title
-            Google Map
-          %input{type: "textbox", placeholder: "スポットを入力", id: "address"}
+          = f.fields_for :spot do |s|
+            = s.label :address, "レビュー場所(Google Mapで検索)", class: 'spot__title'
+            = s.text_field :address, placeholder: "スポットを入力", id: "address"
           %input{onclick: "codeAddress()", type: "button", value: "検索する"}
           #map{style: "height: 320px; width: 640px;"}
-          .spot__info
-            .spot__info__lat{id: "ido"}
-              緯度が表示されます
-            .spot__info__lng{id: "keido"}
-              経度が表示されます
         .review
           .review__title
             = f.label :title, "タイトル", class: 'review__title__label'
@@ -42,4 +37,3 @@
           = link_to("もどる", root_path, class: 'back-btn')
 
 = render "shared/footer"
-%script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MAP_KEY"]}&callback=initMap"}
