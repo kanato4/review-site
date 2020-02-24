@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/mbleigh/acts-as-taggable-on.git
+  revision: 6055f9618a004c5bfdf1740d5479f4885696b7ee
+  branch: master
+  specs:
+    acts-as-taggable-on (6.5.0)
+      activerecord (>= 5.0, < 6.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -294,6 +302,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_hash
+  acts-as-taggable-on!
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
