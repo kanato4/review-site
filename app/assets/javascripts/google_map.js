@@ -4,16 +4,27 @@ let geocoder
 // newアクションの場合
 function initMap(){
   geocoder = new google.maps.Geocoder()
+  if(document.getElementById('map')){
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 35.6594666, lng: 139.7005536},
+      zoom: 15,
+    });
 
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 35.6594666, lng: 139.7005536},
-    zoom: 15,
-  });
-
-  marker = new google.maps.Marker({
-    position:  {lat: 35.6594666, lng: 139.7005536},
-    map: map
-  });
+    marker = new google.maps.Marker({
+      position:  {lat: 35.6594666, lng: 139.7005536},
+      map: map
+    });
+  }else{
+    map = new google.maps.Map(document.getElementById('show_map'), {
+      center: {lat: gon.lat, lng: gon.lng},
+      zoom: 15,
+    });
+  
+    marker = new google.maps.Marker({
+      position:  {lat: gon.lat, lng: gon.lng},
+      map: map
+    });
+  }
 }
 
 function codeAddress(){
@@ -36,19 +47,4 @@ function codeAddress(){
       alert('該当する結果がありませんでした');
     }
   });   
-}
-
-// showアクションの場合
-function initMap(){
-  geocoder = new google.maps.Geocoder()
-
-  map = new google.maps.Map(document.getElementById('show_map'), {
-    center: {lat: gon.lat, lng: gon.lng},
-    zoom: 15,
-  });
-
-  marker = new google.maps.Marker({
-    position:  {lat: gon.lat, lng: gon.lng},
-    map: map
-  });
 }
