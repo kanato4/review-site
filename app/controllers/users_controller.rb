@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
   def index
-    render "users/mypages/index"
+    @review = Review.where(user_id: current_user.id)
   end
 end

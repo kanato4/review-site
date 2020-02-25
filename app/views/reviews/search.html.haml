@@ -1,0 +1,24 @@
+= render "shared/header"
+
+.container
+  .search
+    %h2
+      タグで検索する
+    %p
+      検索
+      = form_with url: search_reviews_path, method: 'get', local: true do |f|
+        = f.text_field :search_tag
+        = f.submit 'Search'
+    - if @reviews.present?
+      - @reviews.each do |review|
+        %tr
+          %td
+            = review.title
+          %td
+            = image_tag review.images[0].image.url, alt: 'reviews-image'
+          %td
+            - review.tags.each do |tag|
+              %span
+                = "##{tag}"
+
+= render "shared/footer"

@@ -29,6 +29,10 @@ class ReviewsController < ApplicationController
     gon.lat = @lat
     gon.lng = @lng
   end
+
+  def search
+    @reviews = Review.tagged_with([params[:search_tag]], any: true)
+  end
   
   private
 

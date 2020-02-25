@@ -1,9 +1,22 @@
 = render "shared/header"
 
 .container
-  .spot
-    %h3.spot__title
-      Google Map
-    #show_map{style: "height: 320px; width: 400px;"}
+  .show
+    .show__user_name
+      = @user.nickname
+    .show__title
+      = @review.title
+    .show-tag
+      - @review.tags.each do |tag|
+        %span
+          = "##{tag}"
+    .show__rating
+      = @review.rating
+    .show__text
+      = @review.description
+    .spot
+      %h3.spot__address
+        = @review.spot.address
+      #show_map{style: "height: 320px; width: 400px;"}
 
 = render "shared/footer"

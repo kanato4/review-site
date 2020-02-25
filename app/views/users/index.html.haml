@@ -1,0 +1,18 @@
+= render "shared/header"
+
+.container
+  .user_name
+    = current_user.nickname
+
+  .my-review
+    - if @review.present?
+      .listing
+      = render partial: 'review', collection: @review, as: :review
+    - else 
+      .listing-non
+        まだ投稿はありません。
+
+  .log-out
+    = link_to "ログアウト", destroy_user_session_path, method: :delete
+    
+= render "shared/footer"

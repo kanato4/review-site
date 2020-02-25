@@ -1,0 +1,8 @@
+.my-content
+  = link_to review_path(review), class: "my-content__list" do
+    %figure
+      = image_tag review.images[0].image.url, alt: 'reviews-image'
+    .my-content__list__text
+      = "#{review.title}を投稿しました。"
+      .my-content__list__status
+        投稿完了

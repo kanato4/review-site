@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   root 'reviews#index'
 
-  resources :reviews
+  resources :reviews do
+    collection do
+      get 'search'
+    end
+  end
 
   devise_for :users, :controllers => {
     sessions: 'users/sessions',
