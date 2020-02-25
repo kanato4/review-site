@@ -9,11 +9,6 @@ function initMap(){
       center: {lat: 35.6594666, lng: 139.7005536},
       zoom: 15,
     });
-
-    marker = new google.maps.Marker({
-      position:  {lat: 35.6594666, lng: 139.7005536},
-      map: map
-    });
   }else{
     map = new google.maps.Map(document.getElementById('show_map'), {
       center: {lat: gon.lat, lng: gon.lng},

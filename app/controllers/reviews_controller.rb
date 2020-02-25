@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show]
 
   def index
+    @tags = Review.tag_counts_on(:tags).order('count DESC')
   end
 
   def new
@@ -36,6 +37,7 @@ class ReviewsController < ApplicationController
         :title,
         :rating,
         :description,
+        :tag_list,
         images_attributes: [:image],
         spot_attributes: [:address]
       ).merge(user_id: current_user.id)
