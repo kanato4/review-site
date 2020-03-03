@@ -6,45 +6,7 @@
       .review__info
         Please let me hear your voice.
       .review__list
-        .article
-          = image_tag "Noimage_image.png"
-          .article__title
-            タイトルが入リます。
-        .article
-          = image_tag "Noimage_image.png"
-          .article__title
-            タイトルが入ります。
-        .article
-          = image_tag "Noimage_image.png"
-          .article__title
-            タイトルが入ります。
-        .article
-          = image_tag "Noimage_image.png"
-          .article__title
-            タイトルが入ります。
-        .article
-          = image_tag "Noimage_image.png"
-          .article__title
-            タイトルが入ります。
-        .article
-          = image_tag "Noimage_image.png"
-          .article__title
-            タイトルが入ります。
-        .article
-          = image_tag "Noimage_image.png"
-          .article_title
-            タイトルが入ります。
-        .article
-          = image_tag "Noimage_image.png"
-          .article__title
-            タイトルが入ります。
-
-    .tag 
-      .tag__head
-        Recently tags
-      .tag__list
-        -# .box 
-        -#   - @tags.each do |tag|
-        -#     = link_to tag.name, posts_path(:action => :tag, :tag => tag.name), :class => "uk-margin-right uk-margin-top uk-text-bold uk-badge"
+        - if @review.present?
+          = render partial: "list", collection: @review, as: :review
 
 = render "shared/footer"

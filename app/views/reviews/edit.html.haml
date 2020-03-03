@@ -1,8 +1,8 @@
 = render "shared/header"
 
 .container
-  .new
-    %h2.title レビュー情報を入力
+  .edit
+    %h2.title レビュー情報を編集
     .form
       = form_with(model: @review, local: true, multipart: true) do |f|
         .image
@@ -14,7 +14,7 @@
               = f.fields_for :images, image do |fi|
                 %li.upload-form
                   = fi.label :image, class: 'upload-form__select-btn', for: "image#{i}" do
-                    = fi.file_field :image, class: 'upload-form__select-btn--input_tag', id:"image#{i}" 
+                    = fi.file_field :image, class: 'upload-form__select-btn--input_tag', id:"image#{i}"
                   -#TODO:削除機能をJSで導入する
                   -# .upload-form__remove-btn{id: "image#{i}_rmv"} 削除
         .spot
@@ -37,6 +37,6 @@
             = f.label :discription, "レビュー内容", class: 'review__content__label'
           = f.text_area :description, class: 'review__content__text', placeholder: "レビューの内容を入力してください。"
         = f.submit "投稿する", class: 'post-btn'
-      = link_to("もどる", root_path, class: 'back-btn')
+      = link_to("もどる", review_path(@review), class: 'back-btn')
 
 = render "shared/footer"

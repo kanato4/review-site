@@ -1,0 +1,48 @@
+.log-in{
+  margin: 0 auto;
+  padding: 16px 0;
+  height: 480px;
+  width: 480px;
+  max-width: 80%;
+  background-color: #fff;
+  text-align: center;
+  h2{
+    font-size: 24px;
+  }
+  .fields{
+    margin: 24px auto 0;
+    width: 100%;
+    font-size: 16px;
+    input{
+      padding: 16px;
+      width: 60%;
+      font-size: 16px;
+    }
+  }
+  .field{
+    margin: 24px auto 0;
+    width: 100%;
+    font-size: 16px;
+  }
+  .actions{
+    margin: 24px auto 0;
+    input{
+      @include btn-default;
+      margin: 0 auto;
+      width: 64%;
+      color: #eee;
+      background-color: $blue;
+    }
+  }
+  .links{
+    margin: 80px auto 0;
+    a{
+      @include btn-default;
+      margin: 0 auto;
+      width: 64%;
+      text-decoration: none;
+      color: black;
+      border: solid gray 1px;
+    }
+  }
+}

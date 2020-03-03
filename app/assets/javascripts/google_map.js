@@ -1,8 +1,7 @@
 let map
 let geocoder
 
-// newアクションの場合
-function initMap(){
+document.addEventListener('turbolinks:load', function initMap(){
   geocoder = new google.maps.Geocoder()
   if(document.getElementById('map')){
     map = new google.maps.Map(document.getElementById('map'), {
@@ -20,7 +19,7 @@ function initMap(){
       map: map
     });
   }
-}
+});
 
 function codeAddress(){
   let inputAddress = document.getElementById('address').value;
@@ -42,4 +41,4 @@ function codeAddress(){
       alert('該当する結果がありませんでした');
     }
   });   
-}
+};

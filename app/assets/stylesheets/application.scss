@@ -1,10 +1,24 @@
 // config
 @import "config/common";
 
-// spots
+// devise
+@import "devise/sessions/new";
+@import "devise/shared/header";
+
+// reviews
 @import "reviews/index";
 @import "reviews/new";
+@import "reviews/search";
+@import "reviews/show";
+@import "reviews/edit";
 
+//signup
+@import "signup/signup";
+
+// users
+@import "users/index";
+
+// common
 @import "./header";
 @import "./footer";
 @import "./reset";

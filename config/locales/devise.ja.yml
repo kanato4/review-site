@@ -28,6 +28,7 @@ ja:
         nickname: ニックネーム
         birthday: 誕生日
         gender: 性別
+        telephone: 携帯電話の番号
     models:
       user: ユーザ
   devise:

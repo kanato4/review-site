@@ -1,11 +1,14 @@
-%main.main
+= render "devise/shared/header"
 
+.container
   .signup-panel
-    %p.signup-panel__title 会員情報入力
-    #new_user
+    %p.signup-panel__title 会員登録完了
+    .signup-form 
       .thankyou
         %p ありがとうございます。
         %p 会員登録が完了しました。
 
-      .sign-up-btn
-        = link_to 'レビューをはじめる', root_path(), class: "btn btn-red"
+    .sign-up-btn
+      = link_to 'レビューをはじめる', root_path()
+
+= render "shared/footer"

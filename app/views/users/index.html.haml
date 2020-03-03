@@ -1,17 +1,23 @@
 = render "shared/header"
 
 .container
-  .user_name
-    = current_user.nickname
+  .user_info
+    .user_info__title
+      ユーザ情報
+    .user_detail
+      = "ニックネーム: #{current_user.nickname}"
+    .user_detail
+      = "メールアドレス: #{current_user.email}"
+    .user_detail
+      = "あなたの投稿数: #{@review.count}"
 
-  .my-review
-    - if @review.present?
-      .listing
-      = render partial: 'review', collection: @review, as: :review
-    - else 
-      .listing-non
-        まだ投稿はありません。
-
+  - if @review.present?
+    = render partial: 'review', collection: @review, as: :review
+  - else 
+    .listing-non
+      まだ投稿はありません。
+  .pagenate
+    = paginate @review
   .log-out
     = link_to "ログアウト", destroy_user_session_path, method: :delete
     

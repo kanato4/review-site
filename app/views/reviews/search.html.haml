@@ -2,23 +2,28 @@
 
 .container
   .search
-    %h2
-      タグで検索する
-    %p
-      検索
-      = form_with url: search_reviews_path, method: 'get', local: true do |f|
-        = f.text_field :search_tag
-        = f.submit 'Search'
-    - if @reviews.present?
-      - @reviews.each do |review|
-        %tr
-          %td
-            = review.title
-          %td
-            = image_tag review.images[0].image.url, alt: 'reviews-image'
-          %td
-            - review.tags.each do |tag|
-              %span
-                = "##{tag}"
+    .search__form
+      %h2
+        タグで検索する
+      .search__form__info
+        = form_with model: @review, url: search_reviews_path, method: 'get', local: true do |f|
+          = f.text_field :search_tag, class: 'field', placeholder: "タグを入力してください"
+          = f.submit 'Search', class: 'search-btn'
+    .search__result
+      - @tags.each do |review|
+        = link_to review_path(review), class: "search__result__article" do
+          = image_tag review.images[0].image.url, alt: 'reviews-image', class: "search__result__article__image"
+          .search__result__article__title
+            = "「#{review.title}」"
+            .search__result__article__address
+              = review.spot.address
+            .search__result__article__rating
+              = "評価: #{review.rating}"
+            .search__result__article__tag
+              - review.tags.each do |tag|
+                %span
+                  = "##{tag}"
+    .pagenate
+      = paginate @tags
 
 = render "shared/footer"

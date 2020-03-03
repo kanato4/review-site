@@ -1,23 +1,23 @@
-%main.main
+= render "devise/shared/header"
+
+.container
   .signup-panel
     %p.signup-panel__title 電話番号の確認
-    = form_with model: @user, url: user_tel_verification_signup_index_path, local: true do |f|
+    = form_with model: @user, url: user_tel_verification_signup_index_path, builder: WithErrorFormBuilder, local: true do |f|
       .signup-form
+        %ul.caution
+          %p.caution__title【注意】
+          %li.__list 入力しなくても、会員登録できます
+          %li.__list 携帯電話番号を入力すると、<u>本当にSMSが送信されます</u>
         .field
-          %ul.form-info--caution
-            %p.form-info--caution__title【注意】
-            %li.form-info--caution__list 入力しなくても、会員登録できます
-            %li.form-info--caution__list 携帯電話番号を入力すると、<u>本当にSMSが送信されます</u>
-          = f.label :telephone, "携帯電話の番号"
-          %span.form-require
+          = f.label :telephone, "携帯電話の番号(ハイフン不要)"
           = f.telephone_field :telephone, class: "field__input", placeholder: "携帯電話の番号を入力"
-          %p.form-info--tell
+          %p.form-info
             本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
 
       .sign-up-btn
-        = f.submit "次へ進む", class: "btn-red"
+        = f.submit "次へ進む"
   
         %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
-      .forgot-password
-        = link_to '電話番号が必要な理由', new_user_password_path
-        %i.fa.fa-chevron-right.arrow
+
+= render "shared/footer"

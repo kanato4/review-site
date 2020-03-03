@@ -1,0 +1,5 @@
+.article
+  = link_to review_path(review) do
+    = image_tag review.images[0].image.url, alt: 'reviews-image'
+  .article__title
+    = review.title

@@ -5,12 +5,15 @@
   box-sizing: border-box;
   width: 90%;
   background-color:rgba(255,255,255,0);
+  z-index: 2;
   .top-menu{
     margin: 0;
     height: 64px;
     line-height: 64px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
     .logo{
-      float: left;
       font-size: 50px;
       a{
         color: black;
@@ -19,9 +22,7 @@
     }
     .user-form{
       margin-top: 16px;
-      padding: 8px;
       box-sizing: border-box;
-      float: right;
       text-align: center;
       display: flex;
       &__post{

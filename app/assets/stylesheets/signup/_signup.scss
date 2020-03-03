@@ -1,0 +1,100 @@
+.signup-panel{
+  margin: 0 auto;
+  padding: 16px 0;
+  min-height: 320px;
+  width: 560px;
+  max-width: 90%;
+  background-color: #fff;
+  text-align: center;
+  &__title{
+    font-size: 24px;
+  }
+  .signup-form{
+    .caution{
+      margin: 40px 0;
+      padding: 10px 2px;
+      color: red;
+      border: thin solid #FFCC00;
+      background-color: #FFCC00;
+      border-radius: 5px;
+      &__title {
+        margin: 0;
+        font-weight: bold;
+      }
+      &__list {
+        margin-top: 10px;
+        padding: 0 10px;
+        list-style: circle;
+        list-style-position: inside;
+      }
+    }
+    .field{
+      margin: 32px auto 0;
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      text-align: left;
+      label{
+        min-width: 160px;
+      }
+      &__input{ 
+        padding: 16px;
+        width: 440px;
+        min-width: 50%;
+        font-size: 16px;
+        border: solid lightgray 1px;
+      }
+      .pulldown {
+        width: 440px;
+        height: 32px;
+        font-size: 14px;
+        line-height: normal;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .field_with_errors{
+        display: inline;
+      }          
+      .field_with_errors input,
+      .field_with_errors select{
+        outline: 0;
+        border-color: red !important;
+      }
+      .errors{
+        margin-top: 8px;
+        color: red;
+      }
+    }
+  }
+  .thankyou{
+    margin: 48px auto 0;
+    width: 90%;
+    text-align: center;
+    p{
+      margin-top: 16px;
+      line-height: normal;
+    }
+  }
+  .sign-up-btn{
+    margin: 24px auto 0;
+    input{
+      @include btn-default;
+      margin: 0 auto;
+      width: 64%;
+      color: #eee;
+      background-color: $blue;
+    }
+    a{
+      @include btn-default;
+      margin: 0 auto;
+      width: 64%;
+      text-decoration: none;
+      color: #eee;
+      background-color: $blue;
+    }
+    p{
+      margin: 32px 8px 0;
+    }
+  }
+}

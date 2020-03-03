@@ -1,10 +1,10 @@
 class ReviewsController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new]
-  before_action :set_review, only: [:show]
+  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :set_review, only: [:show, :edit, :update]
 
   def index
-    @tags = Review.tag_counts_on(:tags).order('count DESC')
+    @review = Review.all.recent(9)
   end
 
   def new
@@ -22,6 +22,17 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    redirect_to review_path unless current_user.id == @review.user_id
+  end
+
+  def update
+    if @review.user_id == current_user.id
+      @review.update(review_params)
+      redirect_to review_path(@review)
+    end
+  end
+
   def show
     @user = User.find(@review.user_id)
     @lat = @review.spot.latitude
@@ -31,9 +42,17 @@ class ReviewsController < ApplicationController
   end
 
   def search
-    @reviews = Review.tagged_with([params[:search_tag]], any: true)
+    @tags = Review.tagged_with([params[:search_tag]]).order("created_at DESC").page(params[:page]).per(5)
   end
   
+  def destroy
+    @review = Review.find(params[:id])
+    if @review.user_id == current_user.id
+      @review.destroy 
+      redirect_to users_path
+    end
+  end
+
   private
 
   def review_params

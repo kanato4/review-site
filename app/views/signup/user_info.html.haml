@@ -1,47 +1,39 @@
-.signup-panel
-  %p.signup-panel__title ユーザ情報登録
+= render "devise/shared/header"
 
-  = form_with model: @user, url: user_tel_signup_index_path, local: true do |f|        
-    .signup-form
-      .field
-        = f.label :nickname, "ニックネーム"
-        %span.form-require
-        = f.text_field :nickname, class: "field__input", placeholder: "例）レビュー太郎"
-      .field
-        = f.label :email, "メールアドレス"
-        %span.form-require
-        = f.email_field :email, class: "field__input", placeholder: "PC・携帯どちらでも可"
-      .field
-        = f.label :password, "パスワード"
-        %span.form-require
-        = f.password_field :password, class: "field__input", placeholder: "6文字以上"
-      .field
-        = f.label :password_confirmation, "パスワード（確認）"
-        %span.form-require
-        = f.password_field :password_confirmation, class: "field__input", placeholder: "6文字以上（確認）"
-      .field
-        = f.label :birthday, "生年月日"
-        %span.form-require
-        .pulldown
-          .select-wrap
+.container
+  .signup-panel
+    %p.signup-panel__title ユーザ情報登録
+
+    = form_with model: @user, url: user_tel_signup_index_path, builder: WithErrorFormBuilder, local: true do |f|        
+      .signup-form
+        .field
+          = f.label :nickname, "ニックネーム"
+          = f.text_field :nickname, class: "field__input", placeholder: "例）レビュー太郎"
+        .field
+          = f.label :email, "メールアドレス"
+          = f.email_field :email, class: "field__input", placeholder: "PC・携帯どちらでも可"
+        .field
+          = f.label :password, "パスワード"
+          = f.password_field :password, class: "field__input", placeholder: "6文字以上"
+        .field
+          = f.label :password_confirmation, "パスワード（確認）"
+          = f.password_field :password_confirmation, class: "field__input", placeholder: "6文字以上（確認）"
+        .field
+          = f.label :birthday, "生年月日"
+          %span.form-require
+          .pulldown
             = raw sprintf(f.date_select( :birthday, 
               prompt: "--",
-                use_two_digit_numbers: true,
-                start_year: Time.now.year,
-                end_year: 1900,
-                date_separator: '%s'),
-                '年 ', '月 ')
-      .field
-        = f.label :gender, "性別"
-        %span.form-require
-        .pulldown
-          .select-wrap
-            = f.select :gender, User.genders.keys, {prompt: "---"}, {class: "field__input"}
+              use_two_digit_numbers: true,
+              start_year: Time.now.year,
+              end_year: 1900,
+              date_separator: '%s'),
+              '年 ', '月 ')
+        .field
+          = f.label :gender, "性別"
+          .pulldown
+            = f.select :gender, User.genders.keys, {prompt: "---"}
+      .sign-up-btn
+        = f.submit "次へ進む"
 
-      %p.form-info
-        ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-    
-      .field
-        %p 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
-    .sign-up-btn
-      = f.submit "次へ進む"
+= render "shared/footer"

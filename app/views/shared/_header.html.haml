@@ -6,13 +6,13 @@
       - if user_signed_in?
         .user-form__post
           = link_to "マイページ", users_path
+        .user-form__post
+          = link_to "投稿", new_review_path
       - else
         .user-form__post
           = link_to "新規登録", user_info_signup_index_path
         .user-form__post
           = link_to "ログイン", new_user_session_path
-      .user-form__post 利用案内
       .user-form__post
         = link_to "検索", search_reviews_path
-      .user-form__post
-        = link_to "投稿", new_review_path
+      .user-form__post 利用案内

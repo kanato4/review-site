@@ -2,21 +2,39 @@
 
 .container
   .show
-    .show__user_name
-      = @user.nickname
-    .show__title
-      = @review.title
-    .show-tag
-      - @review.tags.each do |tag|
-        %span
-          = "##{tag}"
-    .show__rating
-      = @review.rating
-    .show__text
-      = @review.description
+    .swiper-container
+      .swiper-wrapper
+        - @review.images.each_with_index do |image, i|
+          .swiper-slide
+            = image_tag image.image.url, alt: "Swiper#{i}"
+      .swiper-pagination
+      .swiper-button-prev
+      .swiper-button-next
+    .content
+      .content__title
+        = @review.title
+      .content__spot
+        = "スポット: #{@review.spot.address}"
+      .content__user
+        = "ニックネーム: #{@user.nickname}"
+      .content__tag
+        - @review.tags.each do |tag|
+          %span
+            = "##{tag}"
+      .content__rating
+        = "評価: #{@review.rating}"
+      .content__text
+        = @review.description
     .spot
-      %h3.spot__address
-        = @review.spot.address
-      #show_map{style: "height: 320px; width: 400px;"}
+      .spot__address
+        = "スポット: #{@review.spot.address}"
+        %input{onclick: "window.location.reload();", type: "button", value: "更新する"}
+      .spot__maps{id: "show_map", style: "height: 320px; width: 80%;"}
+  - if @user == current_user
+    .show-btn
+      .show-btn__edit
+        = link_to "編集", edit_review_path
+      .show-btn__delete
+        = link_to "削除", review_path, method: :delete
 
 = render "shared/footer"
