@@ -33,8 +33,10 @@ class SignupController < ApplicationController
       @user = User.new
       send_phone_number = PhonyRails.normalize_number session[:user_params_after_user_tel][:telephone], country_code:'JP'
       session[:secure_code] = random_number_generator(4)
+      account_sid = ENV['TWILIO_ACCOUNT_SID']
+      auth_token = ENV['TWILIO_AUTH_TOKEN']
       begin
-        client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
+        client = Twilio::REST::Client.new account_sid, auth_token
         result = client.messages.create(
           from: ENV["TWILIO_PHONE_NUMBER"],
           to:   send_phone_number,
