@@ -71,6 +71,11 @@
       min-width: 280px;
       border: solid lightgray 1px;
       line-height: normal;
+      table-layout:fixed;
+      div{
+        width: 100%;
+        word-wrap:break-word;
+      }
     }
   }
   .spot{

@@ -26,7 +26,8 @@
       .content__rating
         = "評価: #{@review.rating}"
       .content__text
-        = @review.description
+        %div
+          = @review.description
     .spot
       .spot__address
         = "スポット: #{@review.spot.address}"
