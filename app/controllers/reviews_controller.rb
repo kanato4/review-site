@@ -60,6 +60,7 @@ class ReviewsController < ApplicationController
         :title,
         :rating,
         :description,
+        :status,
         :tag_list,
         images_attributes: [:image],
         spot_attributes: [:address]

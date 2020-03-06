@@ -17,6 +17,8 @@
         = "スポット: #{@review.spot.address}"
       .content__user
         = "ニックネーム: #{@user.nickname}"
+      .content__status
+        = "投稿者: #{@review.status}"
       .content__tag
         - @review.tags.each do |tag|
           %span

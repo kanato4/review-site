@@ -4,7 +4,7 @@
   .new
     %h2.title レビュー情報を入力
     .form
-      = form_with(model: @review, local: true, multipart: true) do |f|
+      = form_with model: @review, builder: WithErrorFormBuilder, local: true, multipart: true do |f|
         .image
           %h3.image__title
             出品画像
@@ -30,6 +30,9 @@
           .review__tag
             = f.label :tag_list, "タグ(複数回答可)", class: 'review__tag__label'
           = f.text_field :tag_list, value: @review.tag_list.join(','), placeholder: "複数の場合は「,」で区切ってください", class: 'review__tag__text'
+          .review__status
+            = f.label :status, "ステータス", class: 'review__status__label'
+          = f.select :status, Review.statuses.keys, {prompt: "---"}
           .review__rate
             = f.label :rating, "評価", class: 'review__rate__label'
           = f.select :rating,[[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], prompt: "---", class: 'review__rate__select'

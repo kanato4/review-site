@@ -22,7 +22,8 @@
     display: flex;
     flex-wrap: wrap;
     &__title{
-      min-width: 100%;
+      max-width: 100%;
+      min-width: 280px;
       font-size: 32px;
     }
     &__spot{
@@ -49,6 +50,11 @@
         border-radius: 4px;
       }
     }
+    &__status{
+      margin-top: 8px;
+      min-width: 100%;
+      font-size: 16px;
+    }
     &__rating{
       margin-top: 8px;
       width: 100%;
@@ -62,7 +68,7 @@
       box-sizing: border-box;
       min-height: 160px;
       width: 100%;
-      min-width: 400px;
+      min-width: 280px;
       border: solid lightgray 1px;
       line-height: normal;
     }

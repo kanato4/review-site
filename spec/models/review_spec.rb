@@ -9,6 +9,7 @@ describe Review do
         title: "タイトルが入ります",
         description: "説明文が入ります",
         rating: "1",
+        status: 1,
         user_id: 1
       )
       expect(review).to be_valid
@@ -37,6 +38,7 @@ describe Review do
         title: overchar_title,
         description: "説明文が入ります",
         rating: "1",
+        status: 1,
         user_id: 1
       )
       expect(review).to be_valid
@@ -65,11 +67,19 @@ describe Review do
         title: "タイトルが入ります",
         description: overchar_description,
         rating: "1",
+        status: 1,
         user_id: 1
       )
       expect(review).to be_valid
     end
     
+    # statusがないと登録できない
+    it "is invalid without a status" do
+      review = build(:review, status: "")
+      review.valid?
+      expect(review.errors[:status]).to include("を入力してください")
+    end
+
     # ratingがないと登録できない
     it "is invalid without a rating" do
       review = build(:review, rating: "")
