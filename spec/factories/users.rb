@@ -7,6 +7,7 @@ FactoryBot.define do
     password_confirmation {"00000000"}
     birthday              {"2020-3-3"}
     gender                { 1 }
+    telephone             {"09012345678"}
   end
 
 end

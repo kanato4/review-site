@@ -12,4 +12,9 @@ class Review < ApplicationRecord
   end
 
   scope :recent, -> (count) { order(id: :desc).limit(count) }
+
+  validates :user_id, presence: true
+  validates :title, length: { maximum: 15, allow_blank: true}, presence: true
+  validates :description, length: { maximum: 300, allow_blank: true}, presence: true
+  validates :rating, presence: true
 end
