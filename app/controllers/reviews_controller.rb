@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    3.times { @review.images.build }
+    3.times {@review.images.build}
     @review.build_spot
   end
 
@@ -18,15 +18,19 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to root_path
     else
-      redirect_to new_review_path
+      flash[:error] = @review.errors.full_messages
+      redirect_to action: "new"
     end
   end
 
   def edit
     redirect_to review_path unless current_user.id == @review.user_id
+    count = @review.images.count
+    (3 - count).times {@review.images.build}
   end
 
   def update
+    render action: "edit" unless @review.valid?
     if @review.user_id == current_user.id
       @review.update(review_params)
       redirect_to review_path(@review)
@@ -62,7 +66,7 @@ class ReviewsController < ApplicationController
         :description,
         :status,
         :tag_list,
-        images_attributes: [:image],
+        images_attributes: [:id, :image],
         spot_attributes: [:address]
       ).merge(user_id: current_user.id)
   end

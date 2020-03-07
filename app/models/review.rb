@@ -15,9 +15,11 @@ class Review < ApplicationRecord
 
   scope :recent, -> (count) { order(id: :desc).limit(count) }
 
+  validates :images, length: { maximum: 3, message: "は最大3枚までです" }, presence: true
   validates :user_id, presence: true
-  validates :title, length: { maximum: 15, allow_blank: true}, presence: true
+  validates :title, length: { maximum: 20, allow_blank: true}, presence: true
   validates :description, length: { maximum: 300, allow_blank: true}, presence: true
   validates :rating, presence: true
   validates :status, presence: true
+  validates :tag_list, length: { maximum: 5, message: "は最大5つまでです" }, presence: true
 end

@@ -3,23 +3,26 @@
 .container
   .new
     %h2.title レビュー情報を入力
+    - if flash[:error].present?
+      .errors
+        -flash[:error].each do |e|
+          %li
+            = e
     .form
-      = form_with model: @review, builder: WithErrorFormBuilder, local: true, multipart: true do |f|
+      = form_with model: @review, local: true, multipart: true do |f|
         .image
           %h3.image__title
             出品画像
           %p.image__attention 最大3枚まで選択できます
           %ul.image__upload
-            - @review.images.each_with_index do |image, i|
-              = f.fields_for :images, image do |fi|
-                %li.upload-form
-                  = fi.label :image, class: 'upload-form__select-btn', for: "image#{i}" do
-                    = fi.file_field :image, class: 'upload-form__select-btn--input_tag', id:"image#{i}" 
-                  -#TODO:削除機能をJSで導入する
-                  -# .upload-form__remove-btn{id: "image#{i}_rmv"} 削除
+            = f.fields_for :images do |fi|
+              %li.upload-form
+                = fi.label :image, class: 'upload-form__select-btn', for: "image" do
+                  = fi.file_field :image, class: 'upload-form__select-btn--input_tag', id:"image"
         .spot
           = f.fields_for :spot do |s|
-            = s.label :address, "レビュー場所(Google Mapで検索)", class: 'spot__title'
+            .spot__title
+              = s.label :address, "レビュー場所(Google Mapで検索)", class: 'spot__title'
             = s.text_field :address, placeholder: "スポットを入力", id: "address", class: 'spot__text'
           %input{onclick: "codeAddress()", type: "button", value: "検索する"}
           #map{style: "height: 320px; max-width: 80%;"}

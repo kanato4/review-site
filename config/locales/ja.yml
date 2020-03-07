@@ -2,6 +2,22 @@
 ja:
   enums:
   activerecord:
+    attributes:
+      review:
+        title: タイトル
+        description: 説明文
+        rating: 評価
+        status: ステータス
+        images: 画像
+        tag_list: タグ
+      image:
+        images: 画像
+      spot:
+        address: 地名
+    models:
+      review: レビュー
+      image: 画像
+      spot: スポット
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

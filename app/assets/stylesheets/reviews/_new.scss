@@ -5,6 +5,17 @@
     font-size: 32px;
     text-align: center;
   }
+  .errors{
+    margin: 8px auto 0;
+    padding: 8px;
+    box-sizing: border-box;
+    width: 480px;
+    max-width: 90%;
+    text-align: center;
+    color: #FF3333;
+    background-color: #FFFFAA;
+    list-style: none;
+  }
   .form{
     margin: 16px 64px;
     .image{
@@ -19,7 +30,7 @@
         min-width: 100%;
         line-height: 40px;
         margin-top: 8px;
-        border: 1px solid #ccc;
+        border: solid lightgray 1px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -36,7 +47,9 @@
         font-size: 24px;
       }
       &__text{
+        margin-top: 8px;
         font-size: 16px;
+        border: solid lightgray 1px;
       }
       input{
         font-size: 16px;
@@ -57,6 +70,7 @@
           margin-top: 8px;
           width: 320px;
           font-size: 16px;
+          border: solid lightgray 1px;
         }
       }
       &__tag{
@@ -68,6 +82,7 @@
           margin-top: 8px;
           width: 320px;
           font-size: 16px;
+          border: solid lightgray 1px;
         }
       }
       &__status{
@@ -81,8 +96,6 @@
         &__label{
           font-size: 24px;
         }
-        &__select{
-        }
       }
       &__content{
         margin-top: 32px;
@@ -94,6 +107,7 @@
           height: 160px;
           width: 100%;
           font-size: 16px;
+          border: solid lightgray 1px;
         }
       }
     }
