@@ -1,10 +1,12 @@
 = render "shared/header"
 
 .container
+  .picture
+    Please let me hear your voice.
   .main 
     .review 
       .review__info
-        Please let me hear your voice.
+        Recently reviews
       .review__list
         - if @review.present?
           = render partial: "list", collection: @review, as: :review

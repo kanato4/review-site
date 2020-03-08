@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     if @review.save
-      redirect_to root_path
+      redirect_to users_path
     else
       flash[:error] = @review.errors.full_messages
       redirect_to action: "new"

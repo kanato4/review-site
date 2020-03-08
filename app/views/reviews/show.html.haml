@@ -39,5 +39,8 @@
         = link_to "編集", edit_review_path
       .show-btn__delete
         = link_to "削除", review_path, method: :delete
+  - else
+    .show-btn
+      %input{onclick: "history.back();", type: "button", value: "もどる"}
 
 = render "shared/footer"
