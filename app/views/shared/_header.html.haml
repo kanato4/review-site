@@ -14,5 +14,5 @@
         .user-form__post
           = link_to "ログイン", new_user_session_path
       .user-form__post
-        = link_to "検索", search_reviews_path
-      .user-form__post 利用案内
+        = link_to search_reviews_path do
+          = icon("fas", "search")

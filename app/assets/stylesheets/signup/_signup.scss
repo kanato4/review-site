@@ -84,6 +84,9 @@
       width: 64%;
       color: #eee;
       background-color: $blue;
+      &:hover{
+        background-color: lightskyblue;
+      }
     }
     a{
       @include btn-default;
@@ -92,6 +95,9 @@
       text-decoration: none;
       color: #eee;
       background-color: $blue;
+      &:hover{
+        background-color: lightskyblue;
+      }
     }
     p{
       margin: 32px 8px 0;

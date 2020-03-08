@@ -56,43 +56,4 @@ body{
       }
     }
   }
-  .tag{
-    padding: 16px;
-    box-sizing: border-box;
-    border: solid 1px;
-    border-radius: 8px;
-    &__head{
-      font-size: 32px;
-      padding-bottom: 8px;
-      margin-bottom: 40px;
-      border-bottom: solid 1px gray;
-    }
-    &__list{
-      list-style: none;
-      .box{
-        display: flex;
-        margin-bottom: 32px;
-        &__num{
-          min-width: 1.5em;
-          font-size: 24px;
-          border-bottom: double;
-          &--top{
-            min-width: 1.5em;
-            font-size: 32px;
-            border-bottom: double;
-            color: red;
-          }
-        }
-        &__title{
-          padding: 0 72px 0 32px;
-          font-size: 24px;
-          &--top{
-            padding: 0 72px 0 32px;
-            font-size: 32px;
-            color:red;
-          }
-        }
-      }
-    }
-  }
 }

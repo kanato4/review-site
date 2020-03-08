@@ -32,6 +32,9 @@
       width: 64%;
       color: #eee;
       background-color: $blue;
+      &:hover{
+        background-color: lightskyblue;
+      }
     }
   }
   .links{
@@ -42,7 +45,30 @@
       width: 64%;
       text-decoration: none;
       color: black;
-      border: solid gray 1px;
+      -webkit-appearance: none;  
+      background: -webkit-gradient(to right,$white 0%,$sand 50%,$peach 100%);
+      background: linear-gradient(to right,$white 0%,$sand 50%,$peach 100%);
+      background-size: 400%;
+      border: none;
+      box-shadow: 0 .5rem 1rem rgba(0,0,0,.18);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      letter-spacing: .05em;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      &:hover{
+        animation-name: gradient;
+        -webkit-animation-name: gradient;
+        animation-duration: 1s;
+        -webkit-animation-duration: 1s;
+        animation-iteration-count: 1;
+        -webkit-animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+      }
     }
   }
 }

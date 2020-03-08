@@ -8,8 +8,6 @@
       = "ニックネーム: #{current_user.nickname}"
     .user_detail
       = "メールアドレス: #{current_user.email}"
-    .user_detail
-      = "あなたの投稿数: #{@review.count}"
 
   - if @review.present?
     = render partial: 'review', collection: @review, as: :review

@@ -16,3 +16,17 @@
 }
 
 $blue: #668ad8;
+$green: #a2ccb6;
+$light-peach: #ffecd9;
+$peach: #ee786e;
+$sand: #fceeb5;
+$white: #fff;
+
+@-webkit-keyframes gradient {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100%; }
+}
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100%; }
+}
