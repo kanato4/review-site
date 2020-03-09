@@ -44,12 +44,11 @@ body{
       box-sizing: border-box;
       width: 100%;
       min-height: 64%;
-      border: solid 1px;
-      border-radius: 8px;
+      border: solid 1px lightgray;
       &__info{
         margin-bottom: 24px;
         height: 32px;
-        font-size: 16px;
+        font-size: 24px;
         text-align: center;
         border-bottom: solid 1px;
       }
