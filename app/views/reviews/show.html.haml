@@ -24,7 +24,8 @@
           %span
             = "##{tag}"
       .content__rating
-        = "評価: #{@review.rating}"
+        評価:
+        %span{class: "rate rate#{@review.rating}"}
       .content__text
         %div
           = @review.description

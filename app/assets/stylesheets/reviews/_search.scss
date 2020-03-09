@@ -69,6 +69,44 @@
         padding-top: 16px;
         font-size: 16px;
         line-height: normal;
+        .rate{
+          position: relative;
+          display: inline-block;
+          width: $starFull * 5;
+          height: $starFull;
+          font-size: $starFull;
+          &:before,&:after{
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '★★★★★';
+            display: inline-block;
+            height: $starFull;
+            line-height: $starFull;
+          }
+          &:before{
+          color: #ddd;
+          }
+          &:after{
+          color: #ffa500;
+          overflow: hidden;
+          }
+        }
+        .rate1\.0:after{
+          width: $rate1;
+        }
+        .rate2\.0:after{
+          width: $rate2;
+        }
+        .rate3\.0:after{
+          width: $rate3;
+        }
+        .rate4\.0:after{
+          width: $rate4;
+        }
+        .rate5\.0:after{
+          width: $rate5;
+        }
       }
       &__tag{
         line-height: normal;

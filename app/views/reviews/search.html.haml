@@ -18,7 +18,8 @@
             .search__result__article__address
               = review.spot.address
             .search__result__article__rating
-              = "評価: #{review.rating}"
+              評価:
+              %span{class: "rate rate#{review.rating}"}
             .search__result__article__tag
               - review.tags.each do |tag|
                 %span
