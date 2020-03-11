@@ -37,8 +37,9 @@ class SignupController < ApplicationController
       auth_token = ENV['TWILIO_AUTH_TOKEN']
       begin
         client = Twilio::REST::Client.new account_sid, auth_token
+        twilio_phone_number = ENV["TWILIO_PHONE_NUMBER"]
         result = client.messages.create(
-          from: ENV["TWILIO_PHONE_NUMBER"],
+          from: twilio_phone_number,
           to:   send_phone_number,
           body: "認証番号：#{session[:secure_code]}"
         )
