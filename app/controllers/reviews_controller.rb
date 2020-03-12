@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update]
 
   def index
-    @review = Review.all.recent(9)
+    @review = Review.all.recent(12)
   end
 
   def new
