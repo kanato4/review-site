@@ -24,16 +24,16 @@
   margin: 32px auto;
   box-sizing: border-box;
   padding: 8px;
-  width: 600px;
-  max-width: 70%;
+  width: 520px;
+  max-width: 100%;
   text-align: center;
   display: flex;
   justify-content: space-between;
   &__list{
     margin: 0 auto;
     padding: 8px;
-    width: 600px;
-    max-width: 600px;
+    width: 520px;
+    max-width: 520px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -52,7 +52,8 @@
     &__text{
       box-sizing: border-box;
       padding: 24px 8px;
-      max-width: 50%;
+      width: 240px;
+      max-width: 100%;
       max-height: 240px;
     }
   }
