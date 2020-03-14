@@ -1,60 +1,32 @@
-# README
-## userテーブル
-|Column|Type|Options|
-|------|----|-------|
-|email|string|null: false|
-|password|string|null: false|
-|nickname|string|null: false, index: true|
-|telephone|integer||
-|birthday|date|null: false|
-|gender|integer|null; false|
+<h1 align="center">🏘City-Review</h1>
 
-### Association
-- has_many :reviews
-- has_many :comments
+## 🌐 App URL
+### **http://52.68.200.252/**
 
+[![Image from Gyazo](https://i.gyazo.com/fdc763ad3586ba4174bb62703950727d.gif)](https://gyazo.com/fdc763ad3586ba4174bb62703950727d)
 
-## reviewテーブル
-|Column|Type|Options|
-|------|----|-------|
-|title|string|null: false|
-|description|text|null: false|
-|rating|float|null: false|
-|user_id|references|foreign_key: true, null: false|
+## 😊テスト用アカウント
+### ニックネーム: tester-post
+### メールアドレス: test@test.com
+### パスワード: tester
 
-### Association
-- belongs_to :users
-- has_many :comments
-- has_many :reviews_tags
-- has_many :tags,  through:  :reviews_tags
+## 💻開発状況
+### 開発環境
+ruby/Ruby on Rails/JavaScript/MySQL/Github/AWS/Visual Studio Code
+### 開発期間と平均作業時間
+- 開発期間：約1か月
+- 1日あたりの平均作業時間：4~5時間程度
 
+## 📔実装機能一覧
+- ユーザー新規登録機能
+- SNS認証機能(任意)
+- ログイン機能
+- ログアウト機能
+- レビュー投稿機能
+- レビュー編集機能
+- レビュー削除機能
+- レビュー検索機能(タグ検索)
 
-## tagsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|prefecture|integer|null: false|
-|city|string||
-### Association
-- has_many :reviews_tags
-- has_many :reviews,  through:  :reviews_tags
-
-
-## reviews_tagsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|post_id|integer|null: false, foreign_key: true|
-|tag_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :review
-- belongs_to :tag
-
-
-## commentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|text|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :review
-- belongs_to :user
+## 👓作者について
+- [Github](https://github.com/kanato4)
+- [Qiita](https://qiita.com/kanato4)でアウトプット中。
