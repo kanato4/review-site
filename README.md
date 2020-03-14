@@ -3,7 +3,7 @@
 ## 🌐 App URL
 ### **http://52.68.200.252/**
 
-[![Image from Gyazo](https://i.gyazo.com/fdc763ad3586ba4174bb62703950727d.gif)](https://gyazo.com/fdc763ad3586ba4174bb62703950727d)
+![Image from Gyazo](https://i.gyazo.com/fdc763ad3586ba4174bb62703950727d.gif)
 
 ## 😊テスト用アカウント
 ### ニックネーム: tester-post
