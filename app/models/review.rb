@@ -11,7 +11,7 @@ class Review < ApplicationRecord
     attributes['id'].blank? && attributes['image'].blank?
   end
 
-  enum status: {住民: 1, 旅行者: 2, 通勤（通学）者: 3, その他: 0}
+  enum status: {住民: 1, 観光: 2, 通勤（通学）: 3, 仕事: 4, 友達と: 5, 家族と: 6, デート: 7, その他: 0}
 
   scope :recent, -> (count) { order(id: :desc).limit(count) }
 
