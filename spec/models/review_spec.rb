@@ -3,16 +3,10 @@ describe Review do
   describe '#create' do
 
     #全て存在していれば登録できる
-    it "is valid with a user_id, title, description, rating" do
-      user = FactoryBot.create(:user)
-      review = user.reviews.build(
-        title: "タイトルが入ります",
-        description: "説明文が入ります",
-        rating: "1",
-        status: 1,
-        user_id: 1
-      )
-      expect(review).to be_valid
+    it "is valid with a review" do
+      review = FactoryBot.build(:review)
+      post_review = FactoryBot.build(:image)
+      expect(post_review).to be_valid
     end
 
     #titleがないと登録できない
@@ -22,26 +16,20 @@ describe Review do
       expect(review.errors[:title]).to include("を入力してください")
     end
 
-    #titleが16文字以上は登録できない
-    it "is invalid with a title that has more than 16 characters" do
-      char_title = "a" * 16
-      review = build(:review, title: char_title)
+    #titleが21文字以上は登録できない
+    it "is invalid with a title that has more than 21 characters" do
+      overchar_title = "a" * 21
+      review = build(:review, title: overchar_title)
       review.valid?
-      expect(review.errors[:title]).to include("は15文字以内で入力してください")
+      expect(review.errors[:title]).to include("は20文字以内で入力してください")
     end
 
-    #titleが15文字だと登録できる
-    it "is valid with a title that has less than 15 characters " do
-      overchar_title = "a" * 15
-      user = FactoryBot.create(:user)
-      review = user.reviews.build(
-        title: overchar_title,
-        description: "説明文が入ります",
-        rating: "1",
-        status: 1,
-        user_id: 1
-      )
-      expect(review).to be_valid
+    #titleが20文字だと登録できる
+    it "is valid with a title that has less than 20 characters " do
+      char_title = "a" * 20
+      review = FactoryBot.build(:review, title: char_title)
+      post_review = FactoryBot.build(:image)
+      expect(post_review).to be_valid
     end
 
     #descriptionがないと登録できない
@@ -62,15 +50,9 @@ describe Review do
     #descriptionが300文字だと登録できる
     it "is valid with a description that has less than 300 characters " do
       overchar_description = "a" * 300
-      user = FactoryBot.create(:user)
-      review = user.reviews.build(
-        title: "タイトルが入ります",
-        description: overchar_description,
-        rating: "1",
-        status: 1,
-        user_id: 1
-      )
-      expect(review).to be_valid
+      review = FactoryBot.build(:review, description: overchar_description)
+      post_review = FactoryBot.build(:image)
+      expect(post_review).to be_valid
     end
     
     # statusがないと登録できない
