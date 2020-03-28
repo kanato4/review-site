@@ -46,6 +46,8 @@ class ReviewsController < ApplicationController
   end
 
   def search
+    @search = Review.ransack(params[:q])
+    @results = @search.result.order("created_at DESC").page(params[:page]).per(5)
     @tags = Review.tagged_with([params[:search_tag]]).order("created_at DESC").page(params[:page]).per(5)
   end
   

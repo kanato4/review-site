@@ -2,29 +2,65 @@
 
 .container
   .search
-    .search__form
-      %h2
-        タグで検索する
-      .search__form__info
-        = form_with model: @review, url: search_reviews_path, method: 'get', local: true do |f|
-          = f.text_field :search_tag, class: 'field', placeholder: "タグを入力してください"
-          = f.submit 'Search', class: 'search-btn'
-    .search__result
-      - @tags.each do |review|
-        = link_to review_path(review), class: "search__result__article" do
-          = image_tag review.images[0].image.url, alt: 'reviews-image', class: "search__result__article__image"
-          .search__result__article__title
-            = "「#{review.title}」"
-            .search__result__article__address
-              = review.spot.address
-            .search__result__article__rating
-              評価:
-              %span{class: "rate rate#{review.rating}"}
-            .search__result__article__tag
-              - review.tags.each do |tag|
-                %span
-                  = "##{tag}"
-    .pagenate
-      = paginate @tags
+    %input#tab1{checked: "checked", name: "tab_btn", type: "radio"}
+    %input#tab2{name: "tab_btn", type: "radio"}
+
+    .search__tab
+      %label.tab1_label{for: "tab1"}
+        タグ
+      %label.tab2_label{for: "tab2"}
+        キーワード
+    .search__area
+      .search__area__form{id: "panel1"}
+        %h2
+          タグで検索する
+        .search__area__form__info
+          = form_with model: @review, url: search_reviews_path, method: 'get', local: true do |f|
+            = f.search_field :search_tag, class: 'field', placeholder: "タグを入力してください"
+            = f.submit 'Search', class: 'search-btn'
+      .search__area__form{id: "panel2"}
+        %h2
+          キーワードで検索する
+        .search__area__form__info
+          = search_form_for @search, url: search_reviews_path, method: 'get' do |f|
+            = f.search_field :title_or_description_cont, class: 'field', placeholder: "キーワードを入力してください"
+            = f.submit 'Search', class: 'search-btn'
+
+    - if @tags.present?
+      .search__result
+        - @tags.each do |review|
+          = link_to review_path(review), class: "search__result__article" do
+            = image_tag review.images[0].image.url, alt: 'reviews-image', class: "search__result__article__image"
+            .search__result__article__title
+              = "「#{review.title}」"
+              .search__result__article__address
+                = review.spot.address
+              .search__result__article__rating
+                評価:
+                %span{class: "rate rate#{review.rating}"}
+              .search__result__article__tag
+                - review.tags.each do |tag|
+                  %span
+                    = "##{tag}"
+      .pagenate
+        = paginate @tags
+    - else
+      .search__result
+        - @results.each do |review|
+          = link_to review_path(review), class: "search__result__article" do
+            = image_tag review.images[0].image.url, alt: 'reviews-image', class: "search__result__article__image"
+            .search__result__article__title
+              = "「#{review.title}」"
+              .search__result__article__address
+                = review.spot.address
+              .search__result__article__rating
+                評価:
+                %span{class: "rate rate#{review.rating}"}
+              .search__result__article__tag
+                - review.tags.each do |tag|
+                  %span
+                    = "##{tag}"
+      .pagenate
+        = paginate @results
 
 = render "shared/footer"

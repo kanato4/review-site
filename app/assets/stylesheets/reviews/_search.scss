@@ -1,37 +1,78 @@
 .search{
   margin: 16px auto;
   padding: 0;
-  &__form{
-    margin: 32px auto;
-    padding: 24px;
-    box-sizing: border-box;
-    height: 120px;
-    max-width: 70%;
-    text-align: center;
-    border: solid 1px $blue;
-    border-radius: 4px;
-    h2{
-      font-size: 24px;
-    }
-    &__info{
-      margin: 16px auto 0;
-      display: flex;
-      justify-content: center;
-      max-width: 80%;
-      .field{
-        min-width: 240px;
+  input[type = "radio"]{
+    display: none;
+  }
+  &__tab{
+    font-size :0;
+    margin: 0 auto;
+    width: 70%;
+    label{
+      display: inline-block;
+      margin: 0 5px;
+      padding: 12px 0;
+      width: 150px;
+      color: #999;
+      background-color: #ddd;
+      text-align: center;
+      font-size: 13px;
+      cursor: pointer;
+      transition: ease 0.2s opacity;
+      &:hover{
+        opacity: 0.5;
       }
-      .search-btn{
-        display: inline-block;
-        padding: 0.5em 1em;
-        text-decoration: none;
-        cursor: pointer;
-        background-color: $blue;
-        color: $white;
-        border-bottom: solid 4px #627295;
+    }
+  }
+  &__area{
+    margin: 0 auto;
+    &__form{
+      margin: 0 auto 32px;
+      padding: 24px;
+      box-sizing: border-box;
+      height: 120px;
+      max-width: 70%;
+      text-align: center;
+      border: solid 1px $blue;
+      border-radius: 4px;
+      display:none;
+      h2{
+        font-size: 24px;
+      }
+      &__info{
+        margin: 16px auto 0;
+        display: flex;
+        justify-content: center;
+        max-width: 80%;
+        .field{
+          min-width: 240px;
+          font-size: 16px;
+        }
+        .search-btn{
+          display: inline-block;
+          padding: 0.5em 1em;
+          text-decoration: none;
+          cursor: pointer;
+          background-color: $blue;
+          color: $white;
+          line-height: normal;
+          border-bottom: solid 4px #627295;
         }
       }
     }
+  }
+  #tab1:checked ~ .search__tab .tab1_label{
+    background-color: $blue; color: $white;
+  }
+  #tab1:checked ~ .search__area #panel1{
+    display: block;
+  }
+  #tab2:checked ~ .search__tab .tab2_label{
+    background-color: $blue; color: $white;
+  }
+  #tab2:checked ~ .search__area #panel2{
+    display: block;
+  }
   &__result{
     margin: 16px auto 0;
     text-align: center;
