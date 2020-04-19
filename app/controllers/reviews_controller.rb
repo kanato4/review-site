@@ -50,6 +50,12 @@ class ReviewsController < ApplicationController
     @results = @search.result.order("created_at DESC").page(params[:page]).per(5)
     @tags = Review.tagged_with([params[:search_tag]]).order("created_at DESC").page(params[:page]).per(5)
   end
+
+  def autocomplete
+    all_tags = Review.tag_counts_on(:tags)
+    tags_name = all_tags.where('name LIKE(?)', "#{params[:term]}%").pluck(:name)
+    render json: tags_name.to_json
+  end
   
   def destroy
     @review = Review.find(params[:id])

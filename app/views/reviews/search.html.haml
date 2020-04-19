@@ -16,14 +16,14 @@
           タグで検索する
         .search__area__form__info
           = form_with model: @review, url: search_reviews_path, method: 'get', local: true do |f|
-            = f.search_field :search_tag, class: 'field', placeholder: "タグを入力してください"
+            = f.search_field :search_tag, class: 'field-1', placeholder: "タグを入力してください"
             = f.submit 'Search', class: 'search-btn'
       .search__area__form{id: "panel2"}
         %h2
           キーワードで検索する
         .search__area__form__info
           = search_form_for @search, url: search_reviews_path, method: 'get' do |f|
-            = f.search_field :title_or_description_cont, class: 'field', placeholder: "キーワードを入力してください"
+            = f.search_field :title_or_description_cont, class: 'field-2', placeholder: "キーワードを入力してください"
             = f.submit 'Search', class: 'search-btn'
 
     - if @tags.present?
@@ -42,8 +42,8 @@
                 - review.tags.each do |tag|
                   %span
                     = "##{tag}"
-      .pagenate
-        = paginate @tags
+        .pagenate
+          = paginate @tags
     - else
       .search__result
         - @results.each do |review|
@@ -60,7 +60,7 @@
                 - review.tags.each do |tag|
                   %span
                     = "##{tag}"
-      .pagenate
-        = paginate @results
+        .pagenate
+          = paginate @results
 
 = render "shared/footer"
